@@ -1,8 +1,9 @@
 # Dependencies
 node_modules/
 
-# Uploaded media files
-uploads/
+# Ignore contents of uploads, but keep the folder
+uploads/*
+!uploads/.gitkeep
 
 # Environment variables
 .env
