@@ -3,7 +3,8 @@ import express from 'express';import http from 'http';import {Server} from 'sock
 import multer from 'multer';import cors from 'cors';import fs from 'fs';import path from 'path';
 import {fileURLToPath} from 'url';
 const PORT = process.env.PORT || 3001;
-const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
+const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
+const CORS_ORIGIN = process.env.CORS_ORIGIN || CLIENT_URL || '*';
 const up=path.join(path.dirname(fileURLToPath(import.meta.url)),'uploads');fs.mkdirSync(up,{recursive:true});
 const app=express();app.use(cors({origin:CORS_ORIGIN}));app.use(express.json());
 app.use('/uploads',express.static(up));
